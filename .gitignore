@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.env
+.env*
+.venv/
+venv/
+ENV/
+
+# VSCode
+.vscode/
+
+# Django
+*.log
+db.sqlite3
+media/
+staticfiles/
+
+# Docker
+*.pid
+docker-compose.override.yml
+
+# Postgres
+pgdata/
+
+# Migrations
+*/migrations/__pycache__/
+*/migrations/*.pyc
+
+# Node/React (caso use frontend)
+node_modules/
+build/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testes
+.coverage
+htmlcov/
+
+# Outros
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Ignore arquivos de credenciais
+secrets.*
