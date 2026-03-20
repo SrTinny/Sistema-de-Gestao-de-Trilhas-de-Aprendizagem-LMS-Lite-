@@ -42,19 +42,19 @@ export const CourseCard: React.FC<CourseCardProps> = ({
   if (loading) return <CourseCardSkeleton />;
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 flex flex-col gap-4 w-full max-w-xs border border-slate-200 transition hover:shadow-lg">
-      <div className="h-36 w-full rounded-lg mb-2 flex items-center justify-center bg-slate-100 overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-lg p-5 flex flex-col gap-4 w-full max-w-md min-h-[370px] border border-slate-200 transition hover:shadow-2xl mx-auto">
+      <div className="aspect-video w-full rounded-xl mb-2 flex items-center justify-center bg-slate-100 overflow-hidden max-h-48">
         {thumbnail ? (
-          <img src={thumbnail} alt={title} className="object-cover w-full h-full" loading="lazy" />
+          <img src={thumbnail} alt={title} className="object-cover w-full h-full max-h-48" loading="lazy" />
         ) : (
           <div className="flex items-center justify-center w-full h-full bg-slate-200">
             <BookIcon />
           </div>
         )}
       </div>
-      <h3 className="text-xl font-bold text-slate-800 truncate leading-tight">{title}</h3>
+      <h3 className="text-2xl font-bold text-slate-800 truncate leading-tight">{title}</h3>
       <p className="text-base text-slate-600 line-clamp-2 min-h-[2.5rem]">{description || 'Sem descrição.'}</p>
-      <div className="flex items-center justify-between text-sm text-slate-500 mt-2">
+      <div className="flex flex-wrap items-center justify-between text-sm text-slate-500 mt-2 gap-2">
         <span className="font-medium">Instrutor: <span className="font-normal">{instructor_name || 'Desconhecido'}</span></span>
         <span className="font-medium">Duração: <span className="font-normal">{duration || '-'}</span></span>
       </div>
