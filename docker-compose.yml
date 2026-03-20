@@ -41,5 +41,15 @@ services:
       timeout: 5s
       retries: 5
 
+  frontend:
+    build:
+      context: ./frontend # Onde está o seu package.json
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173" # Porta padrão do Vite
+    environment:
+      - VITE_API_URL=http://localhost:8000/api/v1
+    depends_on:
+      - backend
 volumes:
   pgdata:
