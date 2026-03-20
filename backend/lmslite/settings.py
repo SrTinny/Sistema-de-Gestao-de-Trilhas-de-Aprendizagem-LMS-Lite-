@@ -77,10 +77,11 @@ TEMPLATES = [
     },
 ]
 
-CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # ajuste para o domínio do seu frontend
+    "http://localhost:5173", # Porta padrão do Vite
+    "http://127.0.0.1:5173",
 ]
+CORS_ALLOW_CREDENTIALS = True
 
 STATIC_URL = "/static/"
 
