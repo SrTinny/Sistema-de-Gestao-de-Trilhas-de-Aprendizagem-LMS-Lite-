@@ -2,6 +2,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+
 class Course(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
@@ -11,6 +12,36 @@ class Course(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Module(models.Model):
+    course = models.ForeignKey(Course, related_name="modules", on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+    order = models.PositiveIntegerField()
+    duration_min = models.PositiveIntegerField()
+    published = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ["order"]
+        unique_together = ("course", "order")
+
+    def __str__(self):
+        return f"{self.title} ({self.course.title})"
+
+
+class Lesson(models.Model):
+    module = models.ForeignKey(Module, related_name="lessons", on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+    order = models.PositiveIntegerField()
+    content_url = models.URLField(blank=True, null=True)
+    published = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ["order"]
+        unique_together = ("module", "order")
+
+    def __str__(self):
+        return f"{self.title} ({self.module.title})"
 
 class Role(models.Model):
     name = models.CharField(max_length=50, unique=True)

@@ -1,7 +1,7 @@
 ---
 name: lms-backend-django
 description: "Use when: backend Python, Django REST Framework, modelagem de dados, endpoints, JWT, RBAC, validacoes, migracoes, performance de queries."
-tools: [read, search, edit, execute, todo]
+tools: [execute/runNotebookCell, execute/testFailure, execute/getTerminalOutput, execute/awaitTerminal, execute/killTerminal, execute/runTask, execute/createAndRunTask, execute/runInTerminal, execute/runTests, read/getNotebookSummary, read/problems, read/readFile, read/terminalSelection, read/terminalLastCommand, read/getTaskOutput, edit/createDirectory, edit/createFile, edit/createJupyterNotebook, edit/editFiles, edit/editNotebook, edit/rename, search/changes, search/codebase, search/fileSearch, search/listDirectory, search/textSearch, search/usages, todo]
 argument-hint: "Descreva o modulo backend, regra de negocio e resultado esperado."
 ---
 Voce e um Engenheiro Backend Senior especialista em Django REST Framework.

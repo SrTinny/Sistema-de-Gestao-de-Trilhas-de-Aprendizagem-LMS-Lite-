@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from './AuthContext';
 import api from './api/axios';
 import { CourseCard } from './CourseCard';
 
@@ -15,6 +17,9 @@ const CourseList: React.FC = () => {
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { logout, user } = useAuth();
+    console.log('CourseList renderizou. user:', user);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -52,7 +57,17 @@ const CourseList: React.FC = () => {
       <header className="w-full py-8 px-4 bg-white/80 shadow-sm sticky top-0 z-10">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <h1 className="text-3xl font-extrabold text-indigo-700 tracking-tight text-center sm:text-left">Catálogo de Cursos</h1>
-          <span className="text-slate-500 text-base text-center sm:text-right">Aprenda no seu ritmo, de onde estiver.</span>
+          <div className="flex flex-col sm:flex-row items-center gap-2">
+            <span className="text-slate-500 text-base text-center sm:text-right">
+              {user ? `Bem-vindo, ${user.username}` : 'Aprenda no seu ritmo, de onde estiver.'}
+            </span>
+            <button
+              className="ml-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+              onClick={() => { logout(); navigate('/login'); }}
+            >
+              Sair
+            </button>
+          </div>
         </div>
       </header>
       <main className="flex-1 flex flex-col items-center justify-center px-2 py-8">
