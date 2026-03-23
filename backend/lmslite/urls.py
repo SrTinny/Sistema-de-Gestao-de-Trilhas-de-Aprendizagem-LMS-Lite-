@@ -1,3 +1,4 @@
+from lmslite.api.views import MeView
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import (
@@ -22,5 +23,6 @@ urlpatterns = [
     path("api/v1/token/verify/", TokenVerifyView.as_view(), name="token_verify"),
     path("health/", health, name="health"),
     path("api/v1/users/me/", UserMeView.as_view(), name="user_me"),
+    path("api/v1/me/", MeView.as_view(), name="me"),
     path("api/v1/", include(router.urls)),
 ]

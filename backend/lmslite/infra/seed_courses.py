@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from lmslite.domain.models import Course
 
 def run():

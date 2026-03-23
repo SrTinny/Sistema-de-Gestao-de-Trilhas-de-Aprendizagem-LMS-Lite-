@@ -1,6 +1,6 @@
 # Copilot Customizacao do LMS Lite
 
-Este diretorio contem a configuracao de agentes e prompts para acelerar a construcao do projeto com padrao tecnico de nivel Pleno.
+Este diretorio contem a configuracao de agentes e prompts para acelerar a construcao do projeto com padrao tecnico.
 
 ## Como usar
 1. Abra o chat do Copilot no VS Code.
